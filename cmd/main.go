@@ -1,16 +1,24 @@
 package main
 
 import (
-	"net/http"
+	"authGin/controllers"
+	"authGin/initializers"
+	"authGin/middlewares"
+
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
-	r := gin.Default()
-	
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "pong"})
-	})
+func init() {
+	initializers.LoadEnvs()
+	initializers.ConnectDB()
 
-	r.Run()
+}
+
+func main() {
+	router := gin.Default()
+
+	router.POST("/auth/signup", controllers.CreateUser)
+	router.POST("/auth/login", controllers.Login)
+	router.GET("/user/profile", middlewares.CheckAuth, controllers.GetUserProfile)
+	router.Run()
 }
