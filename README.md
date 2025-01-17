@@ -13,7 +13,7 @@ go  get \
 O script acima instalou o framework Gin com as seguintes bibliotecas:
 
 JWT : uma biblioteca Go para implementação de JSON Web Token.
-DotEnv : uma dependência Go para gerenciar variáveis ​​de ambiente.
+DotEnv : uma dependência Go para gerenciar variáveis de ambiente.
 Gorm : um ORM (Mapeador Relacional de Objetos) para Golang.
 Go Crypto : uma biblioteca de criptografia em Go que será usada para criptografar e descriptografar senhas.
 CompileDaemon: um pacote Go que facilita o recarregamento automático do aplicativo ao salvar as alterações. 
